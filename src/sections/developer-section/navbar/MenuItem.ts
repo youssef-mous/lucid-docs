@@ -1,0 +1,1 @@
+// Process data to allow Usecollapse working on each section separately

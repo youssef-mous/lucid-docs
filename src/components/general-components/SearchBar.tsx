@@ -39,7 +39,7 @@ export default function SearchBar() {
   return (
     <Search>
       <StyledInputBase
-        placeholder="Search…"
+        placeholder="Search documentation..."
         inputProps={{ 'aria-label': 'search' }}
       />
     </Search>
