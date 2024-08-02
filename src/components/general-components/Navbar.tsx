@@ -3,7 +3,7 @@ import {Box, Container, IconButton, Stack, SvgIcon, Typography } from '@mui/mate
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
-import Logo from './Logo';
+
 import InputBase from '@mui/material/InputBase';
 import type { FC } from 'react';
 import { BorderColor, BorderColorRounded, Padding } from '@mui/icons-material';
@@ -77,7 +77,7 @@ const  Navbar : FC = ()=> {
                   width: 24,
                 }}
               >
-                 <Logo /> 
+             
               </Box>
                 <Box
                   sx={{

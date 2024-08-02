@@ -2,60 +2,30 @@
 
 // ----------------------------------------------------------------------
 
-import { Box } from '@mui/material';
-import ThemeProvider from '@/theme';
-import { primaryFont } from '@/theme/typography';
-import { LocalizationProvider } from '@/locales';
+import { Box, Typography } from '@mui/material';
+import { ThemeProviderWrapper } from '@/context/ThemeContext';
+import DocumentationLayout from '@/layouts/documentationLayout';
 
-import Header from '@/sections/developer-section/Header';
-import Sidebar from '@/sections/developer-section/SideBar';
-import MainContent from '@/sections/developer-section/MainContent';
-import { SettingsDrawer} from '@/components/settings';
-import {SettingsProvider} from '@/context/settings'; 
 // ----------------------------------------------------------------------
 
-export const viewport = {
-  themeColor: '#000000',
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-};
+
 
 export const metadata = {
   title: 'Lucid',
   description: 'lucid documentation website.',
 };
 
-type Props = {
-  children: React.ReactNode;
-};
 
-export default function RootLayout({ children }: Props) {
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={primaryFont.className}>
+    <html lang="en" >
       <body>
-        <LocalizationProvider>
-          <SettingsProvider
-            defaultSettings={{
-              themeMode: 'light', // 'light' | 'dark'
-              themeDirection: 'ltr', //  'rtl' | 'ltr'
-              themeColorPresets: 'default', // 'default' | 'preset01' | 'preset02' | 'preset03' | 'preset04' | 'preset05'
-            }}
-          >
-          <ThemeProvider>
-            <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-              <Header />
-              
-              <Box sx={{ display: 'flex', flexDirection: 'row'}}>
-                <Sidebar />
-                <MainContent>
-                  {children}
-                </MainContent>
-              </Box>
-            </Box>
-          </ThemeProvider>
-          </SettingsProvider>
-        </LocalizationProvider>
+        <ThemeProviderWrapper>
+          <DocumentationLayout>
+            {children}
+          </DocumentationLayout>
+        </ThemeProviderWrapper>
       </body>
     </html>
   );
